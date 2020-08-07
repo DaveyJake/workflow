@@ -1,0 +1,101 @@
+---
+# Change `slifer` to your local hostname (e.g. http://LOCAL-HOSTNAME-WOULD-BE-HERE.test).
+PROJECT: "slifer"
+
+# Accepts 'development' or 'production'.
+STATUS: "development"
+
+# Set to true if you want static asset revisioning; helpful for cache busting.
+REVISIONING: true
+
+# Browsersync config.
+BROWSERSYNC:
+  url:
+    - "http://"
+    - ".test:8080"
+  # Files for BrowserSync to watch.
+  watch:
+    - "**/*.scss"
+    - "**/*.js"
+    - "**/*.php"
+
+# Autoprefixer will make sure your CSS works with these browsers.
+COMPATIBILITY:
+  - "last 2 versions"
+  - "> 1%"
+  - "ios >= 9"
+
+# Admin paths for Grunt to reference.
+ADMIN:
+  # Path to dist folders.
+  dist: "admin/assets"
+  # Path to main admin files.
+  entries:
+    - "src/js/slifer-admin.js"
+  # Path to admin JavaScript.
+  js:
+    - "src/js/admin/*"
+  # Path to admin stylesheets source.
+  sass:
+    - "src/sass/admin/*"
+  # Path to admin stylesheets entry.
+  scss:
+    - "src/sass/slifer-admin.scss"
+
+# Grunt will reference these paths when it copies files.
+PATHS:
+  # Path to folders/files to copy.
+  vendor:
+    - "vendor/mobiledetect/mobiledetectlib/Mobile_Detect.php"
+    - "vendor/sinergi/browser-detector/src/*"
+  # Path to dist folders.
+  dist: "dist"
+  # Entries of main files.
+  entries:
+    - "src/js/slifer.js"
+  # Paths to static assets that aren't images, CSS, or JavaScript.
+  assets:
+    - "src/**"
+    - "node_modules/multiselect/{css,img,js}/**"
+    - "!src/{img,js,sass}/**"
+  # Paths to the main JavaScript directory.
+  js:
+    - "src/js/**/*"
+    - "!src/js/admin/*"
+  # Paths to Sass libraries, which can then be loaded with @import.
+  sass:
+    - "node_modules/foundation-sites/scss"
+  # Paths to SCSS entry files.
+  scss:
+    - "src/sass/front-page.scss"
+  # Paths to Sass templates.
+  templates:
+    - "*.scss"
+    - "!style.scss"
+    - "!admin/*"
+    - "!slifer.scss"
+    - "!slifer-admin.scss"
+  # Paths for the package task to include/exclude in .zip archive.
+  package:
+    - "**/*"
+    - "!**/.babelrc"
+    - "!**/.eslint*"
+    - "!**/node_modules/**"
+    - "!**/packaged/**"
+    - "!**/src/**"
+    - "!**/phpcs.xml.dist"
+    - "!**/composer.json"
+    - "!**/composer.lock"
+    - "!**/config.yml"
+    - "!**/cssmin.yml"
+    - "!**/config-default.yml"
+    - "!**/Gruntfile.js"
+    - "!**/package.json"
+    - "!**/package-lock.json"
+    - "!**/slifer.sublime-*"
+    - "!**/webpack.config.js"
+  # Paths for PHP CodeSniffer.
+  phpcs:
+    - "**/*.php"
+    - "!wpcs"
+    - "!wpcs/**"
