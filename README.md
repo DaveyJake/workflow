@@ -51,4 +51,4 @@ To override the default theme configs found in `config-default.yml`, simply copy
 
 ### Changelog
 
-* DATE_OF_CREATION: Initial commit.
+* 2020-08-07: Initial commit.
