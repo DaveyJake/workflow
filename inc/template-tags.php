@@ -44,13 +44,13 @@ if ( ! function_exists( 'project_custom_logo' ) ) :
 	function project_custom_logo( $echo = true ) {
 		global $blog_id;
 
-		$html  = '<span class="ssf-logo site-logo__network">';
-		$html .= sprintf( '<span class="ssf-logo__content">%s</span><span class="ssf-logo__content">%s</span><span class="ssf-logo__content">%s</span>', 'Project Smith', '& Frampton', 'Real Estate' );
+		$html  = '<span class="project-logo site-logo__network">';
+		$html .= sprintf( '<span class="project-logo__content">%s</span><span class="project-logo__content">%s</span><span class="project-logo__content">%s</span>', 'Project', 'Logo', 'Goes Here' );
 		$html .= '</span>';
 
 		if ( 1 !== $blog_id ) {
 			$html .= '<span class="site-logo__agent">';
-			$html .= sprintf( '<span class="site-logo__agent-content">%s</span><span class="site-logo__agent-content">%s <span>%s</span></span><span class="site-logo__agent-content">%s</span>', 'THE', 'LOCALS\'', 'guide', 'vail valley' );
+			$html .= sprintf( '<span class="site-logo__agent-content">%s</span><span class="site-logo__agent-content">%s <span>%s</span></span><span class="site-logo__agent-content">%s</span>', 'THE', 'OTHER', 'LOGO', 'HERE' );
 			$html .= '</span>';
 		}
 
@@ -203,78 +203,5 @@ if ( ! function_exists( 'project_posted_on' ) ) :
 
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-	}
-endif;
-
-if ( ! function_exists( 'project_property_search' ) ) :
-	/**
-	 * Prints HTML for the property search filters.
-	 */
-	function project_property_search() {
-		$location_args = array(
-			'id'          => 'property-search-location',
-			'placeholder' => 'CITY, ZIP, ADDRESS, or MLS#',
-			'type'        => 'text',
-			'icon'        => 'search',
-			'echo'        => true,
-		);
-
-		$min_price_args = array(
-			'id'          => 'property-min-price',
-			'placeholder' => 'MIN PRICE',
-			'echo'        => true,
-		);
-
-		$max_price_args = array(
-			'id'          => 'property-max-price',
-			'placeholder' => 'MAX PRICE',
-			'echo'        => true,
-		);
-
-		$bed_args = array(
-			'id'          => 'property-beds',
-			'placeholder' => 'BEDS',
-			'echo'        => true,
-		);
-
-		$bath_args = array(
-			'id'          => 'property-baths',
-			'placeholder' => 'BATHS',
-			'echo'        => true,
-		);
-
-		$property_type_args = array(
-			'id'          => 'property-type',
-			'placeholder' => 'TYPE',
-			'echo'        => true,
-		);
-
-		echo '<div class="property-search">';
-
-			echo '<span class="property-search__input property-search__input-location">';
-				project_input_box( $location_args );
-			echo '</span>';
-
-			echo '<span class="property-search__input property-search__input-min-price">';
-				project_dropdown_menu( $min_price_args );
-			echo '</span>';
-
-			echo '<span class="property-search__input property-search__input-max-price">';
-				project_dropdown_menu( $max_price_args );
-			echo '</span>';
-
-			echo '<span class="property-search__input property-search__input-beds">';
-				project_dropdown_menu( $bed_args );
-			echo '</span>';
-
-			echo '<span class="property-search__input property-search__input-baths">';
-				project_dropdown_menu( $bath_args );
-			echo '</span>';
-
-			echo '<span class="property-search__input property-search__input-property-type">';
-				project_dropdown_menu( $property_type_args );
-			echo '</span>';
-
-		echo '</div>';
 	}
 endif;
