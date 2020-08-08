@@ -112,7 +112,7 @@ function project_input_box( $args = '' ) {
 	_project_args_fill( $args );
 
 	if ( ! empty( $args['icon'] ) ) {
-		$icon = '<i class="' . esc_attr( 'fa ssf-' . $args['icon'] ) . '"></i>';
+		$icon = '<i class="' . esc_attr( 'fa fa-' . $args['icon'] ) . '"></i>';
 	} else {
         $icon = '';
     }
