@@ -1,0 +1,11 @@
+@import '../components/content/site-details';
+
+#hero {
+	margin-top: $size__site-header;
+}
+// Desktop.
+@include breakpoint(wordpress) {
+	#hero {
+		margin-top: $size__site-header--desktop;
+	}
+}

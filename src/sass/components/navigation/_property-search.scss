@@ -1,0 +1,11 @@
+.property-search {
+	@include flex;
+	justify-content: space-evenly;
+	background-color: $color__background-body;
+
+	&__input {
+		&-location {
+			width: rem-calc(300px);
+		}
+	}
+}

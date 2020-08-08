@@ -1,0 +1,30 @@
+$space__margin-top: 1.5em 0 0;
+$space__margin-bottom: 0 0 1.5em;
+
+.flex {
+	@include flex;
+}
+
+.sticky {
+	display: block;
+}
+
+.post,
+.page {
+	margin: $space__margin-bottom;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: $space__margin-top;
+}
+
+.page-links {
+	clear: both;
+	margin: $space__margin-bottom;
+}

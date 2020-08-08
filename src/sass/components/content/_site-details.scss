@@ -1,0 +1,153 @@
+$color__agent-logo--gray: #818184;
+$color__agent-logo--dark-gray: #4f5150;
+$icons: ('search': $fa-var-search, 'user': $fa-var-user, 'bars': $fa-var-bars);
+$inner-spacing: 116px;
+$margin: 0.75rem;
+
+.site {
+	&-header {
+		@include fixed-top;
+		max-height: $size__site-header;
+		box-shadow: 0 2px 10px 0 #{box-shadow()};
+	}
+
+	&-branding {
+		@include flex-row;
+	}
+
+	&-logo {
+		@include flex-center-column;
+		margin: 0;
+
+		.flex {
+			height: $size__site-header;
+		}
+
+		&__network {
+			@include flex-column;
+			float: left;
+		}
+
+		&__agent {
+			@include flex-column;
+			padding-left: 11px;
+			float: right;
+
+			&-content {
+				&:first-child {
+					display: block;
+					margin: 4px 0 -5px;
+					color: $color__agent-logo--gray;
+					font-size: $font__size-logo;
+				}
+
+				&:nth-child(2) {
+					display: inline-block;
+					color: $color__border-header;
+					font-size: $size__site-logo--rectangle;
+
+					span {
+						color: $color__agent-logo--dark-gray;
+					}
+				}
+
+				&:last-child {
+					display: block;
+					margin: -4px 0 1px;
+					color: $color__agent-logo--gray;
+					font-size: $font__size-logo__agent--desktop;
+				}
+			}
+		}
+
+		.ssf-logo {
+			margin-left: $margin;
+			@include ssf-logo($color__border-header, $size__site-logo, $size__site-logo--rectangle, $font__size-logo);
+		}
+	}
+
+	&-menu {
+		margin-right: $margin;
+		min-width: rem-calc($inner-spacing);
+		@include flex-center-row;
+		@each $icon, $var in $icons {
+			.#{$icon} {
+				&::before {
+					content: fa-content($var);
+				}
+			}
+		}
+
+		.menu-label {
+			display: none;
+		}
+	}
+}
+
+// For desktop.
+@include breakpoint(wordpress) {
+	.site {
+		&-header {
+			top: $size__adminbar--desktop;
+			max-height: $size__site-header--desktop;
+			border-top: 3px solid rgba($color__border-header, 1);
+		}
+
+		&-logo {
+			@include flex-column(center);
+			height: 4.4rem;
+
+			.flex {
+				height: $size__site-logo--desktop;
+			}
+
+			&__agent {
+				&-content {
+					&:first-child {
+						margin: 7px 0 -5px;
+						color: $color__agent-logo--gray;
+						font-size: $font__size-logo--desktop;
+					}
+
+					&:last-child {
+						margin: -6px 0 4px;
+						color: $color__agent-logo--gray;
+						font-size: $font__size-logo--desktop;
+					}
+				}
+			}
+
+			.ssf-logo {
+				margin-left: rem-calc($inner-spacing);
+				letter-spacing: 0.25px;
+				white-space: nowrap;
+				@include ssf-logo(
+					$color__border-header,
+					$size__site-logo--desktop,
+					$size__site-logo--desktop--rectangle,
+					$font__size-logo--desktop
+				);
+			}
+		}
+
+		&-menu {
+			margin-right: rem-calc($inner-spacing);
+
+			@each $icon, $var in $icons {
+				@if $icon == user {
+					.icon-#{$icon} {
+						margin: 0 30px;
+					}
+				}
+			}
+
+			.menu-label {
+				display: inherit;
+				margin-left: rem-calc(7px);
+				font-family: $font__main;
+				font-size: -zf-bp-to-em(14px);
+				font-weight: $font__weight-regular;
+			}
+		}
+	}
+}

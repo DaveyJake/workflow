@@ -1,0 +1,48 @@
+.page-content,
+.entry-content,
+.comment-content {
+	.wp-smiley {
+		border: none;
+		margin-bottom: 0;
+		margin-top: 0;
+		padding: 0;
+	}
+}
+
+// Make sure logo link wraps around logo image.
+.custom-logo-link {
+	display: inline-block;
+}
+
+// Styles Google Maps and embeds properly
+// sass-lint:disable-line no-ids
+.map_canvas {
+	img,
+	iframe,
+	embed,
+	object {
+		max-width: none !important;
+	}
+}
+
+// Flex video.
+.flex-video {
+	position: relative;
+	height: 0;
+	overflow: hidden;
+	padding-top: 1.3889rem;
+
+	iframe {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+
+	&.widescreen {
+		iframe {
+			padding-bottom: 56.25%;
+		}
+	}
+}

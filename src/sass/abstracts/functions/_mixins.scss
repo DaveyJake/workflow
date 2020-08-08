@@ -1,0 +1,156 @@
+// Breakpoints.
+$breakpoints: (
+	small: 0,
+	medium: 640px,
+	wordpress: 783px,
+	large: 1024px,
+	xlarge: 1200px,
+	xxlarge: 1440px
+) !global;
+
+// WordPress breakpoint.
+$wordpress-up: '';
+$wordpress-only: '';
+
+@if map-has-key($breakpoints, wordpress) {
+  $wordpress-up: unquote('screen and #{breakpoint(wordpress)}');
+  $wordpress-only: unquote('screen and #{breakpoint(wordpress only)}');
+}
+
+// Shadow
+@function box-shadow($r: 0, $g: 0, $b: 0, $shadow: 0.5) {
+	$str: 'rgba(#{$r}, #{$g}, #{$b}, #{$shadow})';
+
+	@return $str;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 12) {
+	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+// Fixed to the top.
+@mixin fixed-top {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	@include full-width;
+}
+
+// Flex column.
+@mixin flex-column($justify: space-between) {
+	@include flex;
+	flex-direction: column;
+	justify-content: $justify;
+}
+
+// Flex row.
+@mixin flex-row($justify: space-between) {
+	@include flex;
+	flex-wrap: nowrap;
+	justify-content: $justify;
+}
+
+// Flex center column.
+@mixin flex-center-column {
+	@include flex-column;
+	align-items: center;
+}
+
+// Flex center row.
+@mixin flex-center-row {
+	@include flex-row;
+	align-items: center;
+}
+
+// Full Width
+@mixin full-width {
+	width: 100%;
+}
+
+// Header Icons
+@mixin header-icon($icon) {
+	.ssf-#{$icon} {
+		width: 11px;
+	  height: 13px;
+	  font-family: FontAwesome5Free;
+	  font-size: -zf-bp-to-em(14px);
+	  line-height: unitless-calc(0.93);
+	  letter-spacing: -zf-bp-to-em(-2.18px);
+	  @include text-center;
+	  color: $color__header-icon;
+	}
+}
+
+// Level 2 List
+@mixin level-two-list {
+	ul {
+		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+		float: left;
+		position: absolute;
+		top: 100%;
+		left: -999em;
+		z-index: 99999;
+
+		li {
+			ul {
+				left: -999em;
+				top: 0;
+			}
+
+			&:hover,
+			&.focus {
+				> ul {
+					display: block;
+					left: auto;
+				}
+			}
+		}
+	}
+}
+
+// SSF Logo
+//
+// @param {string} $background-color Hexadecimal color.
+// @param {number} $width            Logo width.
+// @param {number} $height           Logo height.
+// @param {string} $font-size        Pixel height of font.
+@mixin ssf-logo($background-color, $width, $height, $font-size) {
+	$color: rgba(#fff, 1);
+	$border: 0.5px solid rgba(#fff, 1);
+
+	width: $width;
+	background: rgba($background-color, 1);
+	color: $color;
+	font-size: $font-size;
+	@include text-center;
+
+	&__content {
+		height: $height;
+		width: inherit;
+		padding-top: 2px;
+
+		&:first-child {
+			border-bottom: $border;
+			padding-top: 2px;
+		}
+
+		&:last-child {
+			border-top: $border;
+			padding-top: 1px;
+		}
+	}
+}
+
+// Center all text.
+@mixin text-center {
+	text-align: center;
+}
