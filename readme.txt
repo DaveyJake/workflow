@@ -1,4 +1,4 @@
-=== The official TRIBUS theme for Project Smith & Frampton Real Estate. ===
+=== My standard project files and settings. ===
 
 == Installation Steps In Order ==
 
