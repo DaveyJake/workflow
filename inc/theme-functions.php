@@ -2,7 +2,7 @@
 /**
  * Functions that help throughout the theme; not to be used on the frontend.
  *
- * @author Davey Jacobson <daveyjake21@gmail.com>
+ * @author Davey Jacobson <davey.jacobson@tribusgroup.com>
  *
  * @package Project
  */
@@ -187,10 +187,8 @@ function _project_array_attrs( array $attributes, $make_them_data = false ) { //
         $name  = htmlentities( $name, ENT_QUOTES, 'UTF-8' );
         $value = htmlentities( $value, ENT_QUOTES, 'UTF-8' );
 
-        if ( is_bool( $value ) ) {
-            if ( $value ) {
-                $pairs[] = $name;
-            }
+        if ( is_bool( $value ) && $value ) {
+            $pairs[] = $name;
         } else {
             $pairs[] = sprintf( '%s="%s"', $name, $value );
         }
