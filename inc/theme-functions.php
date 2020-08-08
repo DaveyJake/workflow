@@ -113,7 +113,9 @@ function project_input_box( $args = '' ) {
 
 	if ( ! empty( $args['icon'] ) ) {
 		$icon = '<i class="' . esc_attr( 'fa ssf-' . $args['icon'] ) . '"></i>';
-	}
+	} else {
+        $icon = '';
+    }
 
 	// Output if echo is true.
 	if ( $args['echo'] ) {
