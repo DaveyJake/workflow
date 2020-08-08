@@ -133,7 +133,7 @@
 		 Multiple valid prefixes can be provided as a comma-delimited list. -->
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
-			<property name="prefixes" type="array" value="slifer" />
+			<property name="prefixes" type="array" value="project" />
 		</properties>
 	</rule>
 
