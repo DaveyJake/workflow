@@ -2,7 +2,7 @@
 /**
  * Functions that help throughout the theme; not to be used on the frontend.
  *
- * @author Davey Jacobson <davey.jacobson@tribusgroup.com>
+ * @author Davey Jacobson <daveyjake21@gmail.com>
  *
  * @package Project
  */
